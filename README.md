@@ -26,6 +26,8 @@ optional arguments:
                         HTLC stream output file; default htlc-stream.json
   --stream-mode STREAMMODE
                         If flagged no file will be written only streamed to stdout; default: false
+  --silent SILENT
+                        If flagged will not output to stdout; default: false
 ```
 
 ### Example output
