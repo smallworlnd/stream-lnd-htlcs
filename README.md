@@ -6,6 +6,16 @@ Stream all HTLC events from an `lnd` node. Includes information about event type
 
 You'll need an active `lnd`, version 0.9.0+ (https://github.com/lightningnetwork/lnd), with routerrpc built in, Python 3 and the requirements.
 
+Get the Repository in the directory where you want to install
+```
+git clone https://github.com/smallworlnd/stream-lnd-htlcs
+```
+Change Directory
+```
+cd stream-lnd-htlcs
+```
+Install
+
 ```
 pip3 install -r requirements.txt
 ```
