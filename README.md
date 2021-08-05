@@ -27,7 +27,7 @@ Running the script will output HTLC event information both to the screen and to 
 ### Command line arguments
 
 ```
-usage: stream-htlcs.py [-h] [--lnd-dir LNDDIR] [--output-file OUTFILE]
+usage: stream-lnd-htlcs.py [-h] [--lnd-dir LNDDIR] [--output-file OUTFILE]
 
 optional arguments:
   -h, --help            show this help message and exit
