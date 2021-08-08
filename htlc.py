@@ -1,4 +1,5 @@
 from lnd_grpc import router_pb2 as lnrouter
+from lnd_grpc import rpc_pb2 as lnrpc
 from lnd import Lnd
 
 
@@ -23,7 +24,7 @@ class Htlc:
         self.event_outcome = self.get_enum_name_from_value(htlc.DESCRIPTOR.fields_by_name.items(), htlc.ListFields()[-1][0].number)
 
         if self.event_outcome == 'link_fail_event':
-            self.wire_failure = self.get_enum_name_from_value(lnrouter.FailureDetail.items(), htlc.link_fail_event.wire_failure)
+            self.wire_failure = self.get_enum_name_from_value(lnrpc.Failure.FailureCode.items(), htlc.link_fail_event.wire_failure)
             self.failure_detail = self.get_enum_name_from_value(lnrouter.FailureDetail.items(), htlc.link_fail_event.failure_detail)
             self.failure_string = htlc.link_fail_event.failure_string
             self.event_outcome_info = self.get_event_info_enum_names_from_values(htlc.link_fail_event)
