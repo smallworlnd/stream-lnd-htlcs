@@ -22,7 +22,7 @@ class Htlc:
         if humandates == "false":
             self.timestamp = int(htlc.timestamp_ns/1e9)
         else:
-            self.timetamp = datetime.datetime.utcfromtimestamp(int(htlc.timestamp_ns/1e9)).strftime('%Y-%m-%d %H:%M:%S')
+            self.timestamp = datetime.datetime.utcfromtimestamp(int(htlc.timestamp_ns/1e9)).strftime('%Y-%m-%d %H:%M:%S')
         self.event_type = self.get_enum_name_from_value(htlc.EventType.items(), htlc.event_type)
         self.event_outcome = self.get_enum_name_from_value(htlc.DESCRIPTOR.fields_by_name.items(), htlc.ListFields()[-1][0].number)
 
