@@ -1,10 +1,10 @@
 from lnd_grpc import router_pb2 as lnrouter
 from lnd_grpc import rpc_pb2 as lnrpc
 from lnd import Lnd
-
+import datetime
 
 class Htlc:
-    def __init__(self, lnd, htlc):
+    def __init__(self, lnd, htlc, humandates):
         if getattr(htlc, 'incoming_channel_id') != 0:
             self.incoming_channel = lnd.get_alias_from_channel_id(htlc.incoming_channel_id)
             self.incoming_channel_capacity = lnd.get_channel_capacity(htlc.incoming_channel_id)
@@ -19,7 +19,10 @@ class Htlc:
             self.outgoing_channel_local_balance = lnd.get_channel_local_balance(htlc.outgoing_channel_id)
         else:
             self.outgoing_channel = lnd.get_own_alias()
-        self.timestamp = int(htlc.timestamp_ns/1e9)
+        if humandates == "false":
+            self.timestamp = int(htlc.timestamp_ns/1e9)
+        else:
+            self.timetamp = datetime.datetime.utcfromtimestamp(int(htlc.timestamp_ns/1e9)).strftime('%Y-%m-%d %H:%M:%S')
         self.event_type = self.get_enum_name_from_value(htlc.EventType.items(), htlc.event_type)
         self.event_outcome = self.get_enum_name_from_value(htlc.DESCRIPTOR.fields_by_name.items(), htlc.ListFields()[-1][0].number)
 

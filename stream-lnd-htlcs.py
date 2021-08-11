@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import argparse
-
 from lnd import Lnd
 from htlc import Htlc
 
@@ -19,13 +18,15 @@ def main():
     arg_parser.add_argument(
         "--silent", default="false", dest="silent", help="Disable stdout output; default false",
     )
-
+    arg_parser.add_argument(
+        "--human-dates", default="false", dest="humandates", help="Human friendly datetime; default false",
+    )
     args = arg_parser.parse_args()
 
     lnd = Lnd(args.lnddir)
 
     for response in lnd.get_htlc_events():
-        htlc = Htlc(lnd, response)
+        htlc = Htlc(lnd, response, args.humandates)
         if args.silent == "false":
             print(htlc.__dict__)
         if args.streammode == "false":
