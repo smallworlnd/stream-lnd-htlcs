@@ -29,7 +29,7 @@ class Htlc:
         if self.event_outcome == 'link_fail_event':
             self.wire_failure = self.get_enum_name_from_value(lnrpc.Failure.FailureCode.items(), htlc.link_fail_event.wire_failure)
             self.failure_detail = self.get_enum_name_from_value(lnrouter.FailureDetail.items(), htlc.link_fail_event.failure_detail)
-            if self.wire_failure == 'FEE_INSUFFICIENT'
+            if self.wire_failure == 'FEE_INSUFFICIENT':
                 self.failure_string = 'Sender provided outdated or incorrect fee'
             else:
                 self.failure_string = htlc.link_fail_event.failure_string
