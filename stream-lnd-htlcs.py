@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import json
 from lnd import Lnd
 from htlc import Htlc
 
@@ -27,11 +28,12 @@ def main():
 
     for response in lnd.get_htlc_events():
         htlc = Htlc(lnd, response, args.humandates)
+        htlc_json = json.dumps(htlc.__dict__)
         if args.silent == "false":
-            print(htlc.__dict__)
+            print(htlc_json)
         if args.streammode == "false":
             with open(args.outfile, 'a') as f:
-                print(htlc.__dict__, file=f)
+                print(htlc_json, file=f)
 
 
 if __name__ == "__main__":
