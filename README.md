@@ -32,6 +32,9 @@ usage: stream-lnd-htlcs.py [-h] [--lnd-dir LNDDIR] [--output-file OUTFILE]
 optional arguments:
   -h, --help            show this help message and exit
   --lnd-dir LNDDIR      lnd directory; default ~/.lnd
+  --host HOST           host (node) to connect to; default localhost:9000
+  --tls TLS             Path to tls.cert. Used as an alternative to --lnd-dir
+  --macaroon MACAROON   Path to read_only.macaroon. Used as an alternative to --lnd-dir
   --output-file OUTFILE
                         HTLC stream output file; default htlc-stream.json
   --stream-mode STREAMMODE
