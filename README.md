@@ -43,7 +43,7 @@ optional arguments:
 ### Example output
 
 ```
-{'incoming_channel': 'LN-node1-alias', 'outgoing_channel': 'LN-node2-alias', 'outgoing_channel_capacity': 5000000, 'outgoing_channel_remote_balance': 2500000, 'outgoing_channel_local_balance': 2500000, 'timestamp': 1626750720, 'event_type': 'SEND', 'event_outcome': 'forward_fail_event'}
+{"incoming_channel": "LN-node1-alias", "outgoing_channel": "LN-node2-alias", "outgoing_channel_capacity": 5000000, "outgoing_channel_remote_balance": 2500000, "outgoing_channel_local_balance": 2500000, "timestamp": 1626750720, "event_type": "SEND", "event_outcome": "forward_fail_event"}
 ...
-{'incoming_channel': 'LN-nodeX-alias', 'incoming_channel_capacity': 5000000, 'incoming_channel_remote_balance': 2500000, 'incoming_channel_local_balance': 7500000, 'outgoing_channel': 'LN-nodeY-alias', 'outgoing_channel_capacity': 10000000, 'outgoing_channel_remote_balance': 5000000, 'outgoing_channel_local_balance': 5000000, 'timestamp': 1626751932, 'event_type': 'FORWARD', 'event_outcome': 'settle_event'}
+{"incoming_channel": "LN-nodeX-alias", "incoming_channel_capacity": 5000000, "incoming_channel_remote_balance": 2500000, "incoming_channel_local_balance": 7500000, "outgoing_channel": "LN-nodeY-alias", "outgoing_channel_capacity": 10000000, "outgoing_channel_remote_balance": 5000000, "outgoing_channel_local_balance": 5000000, "timestamp": 1626751932, "event_type": "FORWARD", "event_outcome": "settle_event"}
 ```
