@@ -34,7 +34,7 @@ class Lnd:
             tls_path = lnd_dir + '/tls.cert'
 
         if not macaroon_path:
-            lnd_dir + '/data/chain/bitcoin/mainnet/readonly.macaroon'
+            macaroon_path = lnd_dir + '/data/chain/bitcoin/mainnet/readonly.macaroon'
             
         tls_certificate = open(tls_path, 'rb').read()
         ssl_credentials = grpc.ssl_channel_credentials(tls_certificate)

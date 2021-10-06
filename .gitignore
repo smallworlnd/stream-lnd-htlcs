@@ -1,3 +1,5 @@
 lnd_grpc/*proto
 __pycache__
 *.pyc
+
+htlc-stream.json
