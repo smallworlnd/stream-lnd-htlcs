@@ -6,14 +6,18 @@ import datetime
 class Htlc:
     def __init__(self, lnd, htlc, humandates):
         if getattr(htlc, 'incoming_channel_id') != 0:
-            self.incoming_channel = lnd.get_alias_from_channel_id(htlc.incoming_channel_id)
+            self.incoming_htlc_id = htlc.incoming_htlc_id
+            self.incoming_channel_id = htlc.incoming_channel_id
+            self.incoming_peer = lnd.get_alias_from_channel_id(htlc.incoming_channel_id)
             self.incoming_channel_capacity = lnd.get_channel_capacity(htlc.incoming_channel_id)
             self.incoming_channel_remote_balance = lnd.get_channel_remote_balance(htlc.incoming_channel_id)
             self.incoming_channel_local_balance = lnd.get_channel_local_balance(htlc.incoming_channel_id)
         else:
             self.incoming_channel = lnd.get_own_alias()
         if getattr(htlc, 'outgoing_channel_id') != 0:
-            self.outgoing_channel = lnd.get_alias_from_channel_id(htlc.outgoing_channel_id)
+            self.outgoing_htlc_id = htlc.outgoing_htlc_id
+            self.outgoing_channel_id = htlc.outgoing_channel_id
+            self.outgoing_peer = lnd.get_alias_from_channel_id(htlc.outgoing_channel_id)
             self.outgoing_channel_capacity = lnd.get_channel_capacity(htlc.outgoing_channel_id)
             self.outgoing_channel_remote_balance = lnd.get_channel_remote_balance(htlc.outgoing_channel_id)
             self.outgoing_channel_local_balance = lnd.get_channel_local_balance(htlc.outgoing_channel_id)
