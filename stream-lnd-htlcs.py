@@ -11,6 +11,15 @@ def main():
         "--lnd-dir", default="~/.lnd", dest="lnddir", help="lnd directory; default ~/.lnd",
     )
     arg_parser.add_argument(
+        "--host", default="localhost:10009", dest="host", help="host address; default localhost:10009",
+    )
+    arg_parser.add_argument(
+        "--tls", dest="tls", help="Path to tls.cert. Used as an alternative to --lnd-dir",
+    )
+    arg_parser.add_argument(
+        "--macaroon", dest="macaroon", help="Path to read_only.macaroon. Used as an alternative to --lnd-dir",
+    )
+    arg_parser.add_argument(
         "--output-file", default="htlc-stream.json", dest="outfile", help="HTLC stream output file; default htlc-stream.json",
     )
     arg_parser.add_argument(
@@ -24,7 +33,7 @@ def main():
     )
     args = arg_parser.parse_args()
 
-    lnd = Lnd(args.lnddir)
+    lnd = Lnd(args.lnddir, args.host, args.tls, args.macaroon)
 
     for response in lnd.get_htlc_events():
         htlc = Htlc(lnd, response, args.humandates)
