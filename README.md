@@ -37,10 +37,12 @@ optional arguments:
   --macaroon MACAROON   Path to read_only.macaroon. Used as an alternative to --lnd-dir
   --output-file OUTFILE
                         HTLC stream output file; default htlc-stream.json
-  --stream-mode STREAMMODE
+  --stream-mode 
                         If flagged no file will be written only streamed to stdout; default: false
-  --silent SILENT
+  --silent 
                         If flagged will not output to stdout; default: false
+  --human-dates
+                        Human friendly datetime; default: false
 ```
 
 ### Example output
