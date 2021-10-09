@@ -23,13 +23,13 @@ def main():
         "--output-file", default="htlc-stream.json", dest="outfile", help="HTLC stream output file; default htlc-stream.json",
     )
     arg_parser.add_argument(
-        "--stream-mode", default="false", dest="streammode", help="Stream output to stdout only; default false",
+        "--stream-mode", default="false", dest="streammode", help="Stream output to stdout only; default false", action="store_const", const="true"
     )
     arg_parser.add_argument(
-        "--silent", default="false", dest="silent", help="Disable stdout output; default false",
+        "--silent", default="false", dest="silent", help="Disable stdout output; default false", action="store_const", const="true"
     )
     arg_parser.add_argument(
-        "--human-dates", default="false", dest="humandates", help="Human friendly datetime; default false",
+        "--human-dates", default="false", dest="humandates", help="Human friendly datetime; default false", action="store_const", const="true"
     )
     args = arg_parser.parse_args()
 
