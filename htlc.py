@@ -13,7 +13,7 @@ class Htlc:
             self.incoming_channel_remote_balance = lnd.get_channel_remote_balance(htlc.incoming_channel_id)
             self.incoming_channel_local_balance = lnd.get_channel_local_balance(htlc.incoming_channel_id)
         else:
-            self.incoming_channel = lnd.get_own_alias()
+            self.incoming_peer = lnd.get_own_alias()
         if getattr(htlc, 'outgoing_channel_id') != 0:
             self.outgoing_htlc_id = htlc.outgoing_htlc_id
             self.outgoing_channel_id = str(htlc.outgoing_channel_id)
@@ -22,7 +22,7 @@ class Htlc:
             self.outgoing_channel_remote_balance = lnd.get_channel_remote_balance(htlc.outgoing_channel_id)
             self.outgoing_channel_local_balance = lnd.get_channel_local_balance(htlc.outgoing_channel_id)
         else:
-            self.outgoing_channel = lnd.get_own_alias()
+            self.outgoing_peer = lnd.get_own_alias()
         if humandates == "false":
             self.timestamp = int(htlc.timestamp_ns/1e9)
         else:
